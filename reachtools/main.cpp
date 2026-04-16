@@ -2395,10 +2395,10 @@ void convert2(string prefix){
 		align_line.init(line);
 		if(align_line.chr == "*")continue;
 		vector<string> tmp = cxstring::split(align_line.readname, ":");
-		fastq_line.readname = "@" + tmp[0] + ":" + tmp[1] + ":" + tmp[2] + ":" + tmp[3] + ":" + tmp[4] + ":" + tmp[5] + ":" + tmp[6] + ":" +  align_line.chr + ":" + tmp[7];
-		fastq_line.seq = tmp[8];
-		//fastq_line.qual = tmp[9];
-		fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[8].length(), tmp[8].length()); // fix bug for NovaSeq
+		fastq_line.readname = "@" + tmp[0] + ":" + tmp[1] + ":" + tmp[2] + ":" + tmp[3] + ":" + tmp[4] + ":" +  align_line.chr + ":" + tmp[5];
+		fastq_line.seq = tmp[6];
+		//fastq_line.qual = tmp[7];
+		fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[7].length(), tmp[7].length()); // fix bug for NovaSeq
 		fastq_line.mark = "+";
 		fastq_line.write_record(fout);
 		++pass;
