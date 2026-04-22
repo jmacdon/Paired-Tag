@@ -2399,9 +2399,8 @@ void convert2(string prefix){
 		fastq_line.seq = tmp[6];
 		//fastq_line.qual = tmp[7];
 		if(tmp.size() > 7) {
-		  vector<int> therest = tmp.size();
 		  int s;
-		  for( int i = 7; i < therest; i++) {
+		  for( int i = 7; i < tmp.size(); i++) {
 		    s += tmp[i].length();
 		  }
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
