@@ -2398,7 +2398,16 @@ void convert2(string prefix){
 		fastq_line.readname = "@" + tmp[0] + ":" + tmp[1] + ":" + tmp[2] + ":" + tmp[3] + ":" + tmp[4] + ":" +  align_line.chr + ":" + tmp[5];
 		fastq_line.seq = tmp[6];
 		//fastq_line.qual = tmp[7];
-		fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[7].length(), tmp[7].length()); // fix bug for NovaSeq
+		if(tmp.end() > 7) {
+		  vector<int> therest = tmp.end();
+		  int s;
+		  for( int i = 7; i < therest; i++) {
+		    s += tmp[i].length();
+		  }
+		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
+		} else {
+		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[7].length(), tmp[7].length()); // fix bug for NovaSeq
+		}
 		fastq_line.mark = "+";
 		fastq_line.write_record(fout);
 		++pass;
