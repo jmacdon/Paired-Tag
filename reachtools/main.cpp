@@ -2399,7 +2399,7 @@ void convert2(string prefix){
 		fastq_line.seq = tmp[6];
 		//fastq_line.qual = tmp[7];
 		if(tmp.size() > 7) {
-		  vector<int> therest = tmp.end();
+		  vector<int> therest = tmp.size();
 		  int s;
 		  for( int i = 7; i < therest; i++) {
 		    s += tmp[i].length();
