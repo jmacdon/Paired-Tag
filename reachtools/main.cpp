@@ -2399,7 +2399,7 @@ void convert2(string prefix){
 		fastq_line.seq = tmp[6];
 		//fastq_line.qual = tmp[7];
 		if(tmp.size() > 7) {
-		  int s = 0;
+		  int s = 1;
 		  for( string::size_type i = 7; i < tmp.size(); i++) {
 		    s += tmp[i].length() + 1;
 		  }
