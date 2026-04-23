@@ -2399,11 +2399,16 @@ void convert2(string prefix){
 		fastq_line.seq = tmp[6];
 		//fastq_line.qual = tmp[7];
 		if(tmp.size() > 7) {
-		  int s = -1;
-		  for( string::size_type i = 7; i < tmp.size(); i++) {
-		    s += tmp[i].length() + 1;
+		  int s = 0;
+		  for(int i = 0; i < 7; i++) {
+		    s += tmp[i].length + 1;
 		  }
-		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
+		  fastq_line.qual = align_line.readname.substr(s, align_line.readname.length() - s);
+		  // int s = -1;
+		  // for( string::size_type i = 7; i < tmp.size(); i++) {
+		  //   s += tmp[i].length() + 1;
+		  // }
+		  //fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
 		} else {
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[7].length(), tmp[7].length()); // fix bug for NovaSeq
 		}
