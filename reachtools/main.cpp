@@ -2401,7 +2401,7 @@ void convert2(string prefix){
 		if(tmp.size() > 7) {
 		  int s;
 		  for( int i = 7; i < tmp.size(); i++) {
-		    s += tmp[i].length();
+		    s += tmp[i].length() + 1;
 		  }
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
 		} else {
