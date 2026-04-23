@@ -2403,6 +2403,7 @@ void convert2(string prefix){
 		  for( int i = 7; i < tmp.size(); i++) {
 		    s += tmp[i].length() + 1;
 		  }
+		  cout << s << "is fricken huge" << end1;
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
 		} else {
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[7].length(), tmp[7].length()); // fix bug for NovaSeq
