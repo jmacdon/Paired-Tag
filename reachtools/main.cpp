@@ -2403,7 +2403,6 @@ void convert2(string prefix){
 		  for( string::size_type i = 7; i < tmp.size(); i++) {
 		    s += tmp[i].length() + 1;
 		  }
-		  cout << "S is " << s << endl;
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()- s, s);
 		} else {
 		  fastq_line.qual = align_line.readname.substr(align_line.readname.length()-tmp[7].length(), tmp[7].length()); // fix bug for NovaSeq
